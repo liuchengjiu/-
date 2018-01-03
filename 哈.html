@@ -1,0 +1,73 @@
+<html>
+  <head> 
+	<title> hello word </title>
+	
+	<meta charset="utf-8" />
+	<script>
+		
+	   window.onload = function(){  
+	     gb();
+	   }
+	   function gb(){
+		var xz=new Date();//这里是现在的时间
+		 //alert(xz);
+	
+		//  alert(xz.getTime());//现在的时间戳
+		var a=ls.sb.value;
+		 var sr=new Date(a);//获取出生时间
+		 //alert(a);
+		  //alert(sr);
+		   var xzsj=xz.getTime();
+		   var srsj=sr.getTime();
+		   var swsj=sr.getTime()+(30000*24*60*60*1000);
+		  // alert(srsj);
+		 // alert(xz.getTime()-sr.getTime());
+		 var hl=xzsj-srsj;//这里是多了多久
+		// var 
+		  var nian=Math.ceil(hl/1000/60/60/24/365);
+		  var tian=Math.ceil(hl/1000/60/60/24);
+		  //alert("看看多大了"+nian);
+		 var sysj=swsj-xzsj;
+		  nl.innerHTML="今年"+nian+"岁";
+		  ti.innerHTML="来到地球上呆了"+tian+"天";
+		  sy.innerHTML="还能看"+Math.ceil(sysj/1000/60/60/24)+"日出";
+		  var miao =Math.ceil(sysj/1000);
+		  var hms  =Math.ceil(sysj%1000);
+		  if (hms<10){
+		  hms="00"+hms;
+		  }else if(hms<100){
+		  hms="0"+hms;
+		  }
+		   hx.innerHTML="还能呼吸<font color='red'>"+miao+"."+hms+"秒";
+			var hours = xz.getHours();
+			var minutes = xz.getMinutes();
+			var seconds = xz.getSeconds()
+			var timeValue = "" +((hours >= 12) ? "下午 " : "上午 " )
+			timeValue += ((hours >12) ? hours -12 :hours)
+			timeValue += ((minutes < 10) ? ":0" : ":") + minutes
+			timeValue += ((seconds < 10) ? ":0" : ":") + seconds
+		 newtime.innerHTML=timeValue;
+		  // window.setTimeout("gb()",3000); 
+		//timerID = setTimeout("gb()",10000); 
+			setTimeout("gb()",2);
+
+			}
+	</script>
+  </head>
+  <body background="http://imgsrc.baidu.com/imgad/pic/item/574e9258d109b3de6907764cc6bf6c81800a4c5e.jpg" >
+<center>
+
+	<form name="ls">
+				现在时间:<p><span id="newtime"></span></p>
+				
+		请输入您的生日:<input type="text" value="1993-04-20" onchange="gb()"  name="sb"></input>
+		<p><font color="blue"><span id="nl"></span></font></p>
+		<p><font color="blue"><span id="ti"></span></font></p>
+		<p><span id="sy"></span></p>
+		<p><font color="orange"><span id="hx"></span></font></p>
+		
+	</form>
+	</center>
+
+  </body>
+</html>
